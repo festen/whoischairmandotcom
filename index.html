@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Who is Vendetta's chairman?</title>
+    <script src="./names.js"></script>
+    <script src="./memes.js"></script>
+    <script src="./functions.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background: whitesmoke;
+            flex-direction: column;
+            font-size: 24px;
+            font-family: sans-serif;
+        }
+
+        * {
+            transition: opacity ease-in 300ms;
+        }
+
+        img {
+            height: 80vh;
+        }
+    </style>
+</head>
+<body>
+<pre id="content"></pre>
+<p id="error"></p>
+<script>
+    (async () => {
+        const id = window.getIndex()
+        await window.load(names[id], memes[id])
+        await window.after(4000)
+        setInterval(() => confetti({
+            spread: r(30, 150),
+            particleCount: r(50, 100),
+            origin: {
+                x: r(0.3, 0.7),
+                y: r(0.3, 0.6),
+            },
+            ticks: r(150, 400)
+        }), 1000)
+    })()
+</script>
+</body>
+</html>
