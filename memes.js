@@ -1,8 +1,81 @@
-window.memes = [
+window.memes = [, , , , , , , , , , , , , , , ,
+    {
+        id: "112126428",
+        default: "Distracted Boyfriend",
+        descr: "distracted bf, guy checking out another girl, man looking at other woman, jealous girlfriend, guy looking back, cheater temptation, wandering eyes, disloyal boyfriend",
+        text0: 'Not the chairman',
+        text1: '{{name}}',
+    },
+    {
+        id: "181913649",
+        default: "Drake Hotline Bling",
+        descr: "drakeposting, drakepost, drake hotline approves, drake no yes, drake like dislike, drake faces",
+        text0: 'Please remove the amateurs',
+        text1: '{{name}} is your chairman',
+    },
+    {
+        id: "87743020",
+        default: "Two Buttons",
+        descr: "2 red buttons, choice button, which button, daily struggle, hard choice to make",
+        text0: '{{name}}',
+        text1: '{{name}}',
+    },
+    {
+        id: "438680",
+        default: "Batman Slapping Robin",
+        descr: "",
+        text0: 'Maybe Rineke this time?',
+        text1: 'NO! it\'s your turn {{name}}.'
+    },
+    {
+        id: "61579",
+        default: "One Does Not Simply",
+        descr: "one does not simply walk into morder, lord of the rings boromir",
+        text0: 'One does not simple',
+        text1: 'man the chair',
+    },
+    {
+        id: "102156234",
+        default: "Mocking Spongebob",
+        descr: "spongebob mock, spongebob chicken, retarded spongebob, sarcastic spongebob, spongebob stupid, spongebob derp, spongebob bird, spongebob mocking face",
+        text0: 'He lives in a pinapple under the sea',
+        text1: '{{name}}bob chairman!'
+    },
+    {
+        id: "101470",
+        default: "Ancient Aliens",
+        descr: "Giorgio Tsoukalos, History Channel Guy",
+        text0: '',
+        text1: 'I got this'
+    },
+    {
+        id: "4087833",
+        default: "Waiting Skeleton",
+        descr: "skeleton waiting on bench in the park",
+        text0: '',
+        text1: '{{name}} waiting for his round at chairman'
+    },
+    {
+        id: "89370399",
+        default: "Roll Safe Think About It",
+        descr: "thinking black guy, black guy pointing at his head, can't blank if you don't blank, smart black dude, guy tapping head",
+        text0: 'I have a chair and I am a man',
+        text1: 'I could be chairman, think about it'
+    },
+    {
+        id: "217743513",
+        default: "UNO Draw 25 Cards",
+        descr: "do something you don’t like or draw 25 cards, uno dilemma, uno or draw 25, draw 25",
+        text0: 'Be chairman',
+        text1: '{{name}}',
+    },
+
     {
         id: "55311130",
         default: "This Is Fine",
-        descr: "this is fine dog, dog house fire, dog in burning house, house on fire"
+        descr: "this is fine dog, dog house fire, dog in burning house, house on fire",
+        text0: '{{name}} the chairdog',
+        text1: '',
     },
     {
         id: "79132341",
@@ -43,58 +116,6 @@ window.memes = [
         descr: "awkward seal, uncomfortable situation sealion, heavy breathing sealion"
     },
     {id: "61583", default: "Conspiracy Keanu", descr: ""},
-    {
-        id: "112126428",
-        default: "Distracted Boyfriend",
-        descr: "distracted bf, guy checking out another girl, man looking at other woman, jealous girlfriend, guy looking back, cheater temptation, wandering eyes, disloyal boyfriend",
-        text0: 'Not the chairman',
-        text1: '{{name}}',
-    },
-    {
-        id: "181913649",
-        default: "Drake Hotline Bling",
-        descr: "drakeposting, drakepost, drake hotline approves, drake no yes, drake like dislike, drake faces",
-        text0: 'Please remove the amateurs',
-        text1: '{{name}} is your chairman',
-    },
-    {
-        id: "87743020",
-        default: "Two Buttons",
-        descr: "2 red buttons, choice button, which button, daily struggle, hard choice to make",
-        text0: '{{name}}',
-        text1: '{{name}}',
-    },
-    {id: "438680", default: "Batman Slapping Robin", descr: "", text0: 'Maybe Rineke this time?', text1: 'NO! it\'s your turn {{name}}.'},
-    {id: "124822590", default: "Left Exit 12 Off Ramp", descr: "car drifts off highway, sharp turn on road"},
-    {
-        id: "61579",
-        default: "One Does Not Simply",
-        descr: "one does not simply walk into morder, lord of the rings boromir"
-    },
-    {
-        id: "102156234",
-        default: "Mocking Spongebob",
-        descr: "spongebob mock, spongebob chicken, retarded spongebob, sarcastic spongebob, spongebob stupid, spongebob derp, spongebob bird, spongebob mocking face"
-    },
-    {id: "93895088", default: "Expanding Brain", descr: ""},
-    {id: "101470", default: "Ancient Aliens", descr: "Giorgio Tsoukalos, History Channel Guy"},
-    {id: "1035805", default: "Boardroom Meeting Suggestion", descr: "throw a guy out the boardroom window"},
-    {
-        id: "131087935",
-        default: "Running Away Balloon",
-        descr: "big yellow ball and pink guy, me vs my hopes and dreams"
-    },
-    {id: "4087833", default: "Waiting Skeleton", descr: "skeleton waiting on bench in the park"},
-    {
-        id: "89370399",
-        default: "Roll Safe Think About It",
-        descr: "thinking black guy, black guy pointing at his head, can't blank if you don't blank, smart black dude, guy tapping head"
-    },
-    {
-        id: "217743513",
-        default: "UNO Draw 25 Cards",
-        descr: "do something you don’t like or draw 25 cards, uno dilemma, uno or draw 25, draw 25"
-    },
     {
         id: "91538330",
         default: "X, X Everywhere",

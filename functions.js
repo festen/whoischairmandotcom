@@ -38,8 +38,8 @@ window.r = (lower, upper) => {
 window.load = async (name, meme) => {
     document.body.innerHTML = ''
     try {
-        const text0 = (meme.text0 || meme.default || '').replaceAll('{{name}}', name)
-        const text1 = (meme.text1 || name || '').replaceAll('{{name}}', name)
+        const text0 = (meme.text0 ?? meme.default ?? '').replaceAll('{{name}}', name)
+        const text1 = (meme.text1 ?? name ?? '').replaceAll('{{name}}', name)
         const response = await fetch(`https://api.imgflip.com/caption_image?text0=${text0}&text1=${text1}&username=${user}&password=${token}&template_id=${meme.id}`, {
             method: 'POST',
         })
@@ -72,5 +72,6 @@ window.load = async (name, meme) => {
         content2.innerHTML = "We have no idea who is chairman, <strong>what do we do now?</strong>"
         document.body.appendChild(content1)
         document.body.appendChild(content2)
+        throw e
     }
 }
