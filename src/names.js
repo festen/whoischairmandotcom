@@ -1,3 +1,7 @@
+/**
+ * Index used as week number, starting week 0 2021
+ * @type {string[]}
+ */
 window.names = [
     "Inam",
     "Marcel",

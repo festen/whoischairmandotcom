@@ -5,62 +5,27 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="style.css">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <title>Who is Vendetta's chairman?</title>
-    <script src="./names.js"></script>
-    <script src="./memes.js"></script>
-    <script src="./functions.js"></script>
+    <script src="src/names.js"></script>
+    <script src="src/memes.js"></script>
+    <script src="src/functions.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: calc(100vw - 16px);
-            height: 100vh;
-            background: whitesmoke;
-            flex-direction: column;
-            font-size: 24px;
-            font-family: sans-serif;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        * {
-            transition: opacity ease-in 300ms;
-        }
-
-        img {
-            max-height: 75vh;
-            max-width: 100vw;
-            margin: 16px;
-        }
-    </style>
 </head>
 <body>
-<pre id="content"></pre>
-<p id="error"></p>
 <script>
     (async () => {
-        const id = window.getIndex()
-        await window.load(names[id], memes[id])
+        const index = Number(new URLSearchParams(window.location.search).get('week') ?? window.getWeek(new Date()))
+        await window.createHeroBanner(index)
+        await window.createTable(...window.createTableData(index, 3))
         await window.after(4000)
-        setInterval(() => confetti({
-            spread: r(30, 150),
-            particleCount: r(50, 100),
-            origin: {
-                x: r(0.3, 0.7),
-                y: r(0.3, 0.6),
-            },
-            ticks: r(150, 400)
-        }), 1000)
+        window.sparkles()
     })()
 </script>
 </body>
