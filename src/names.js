@@ -19,6 +19,7 @@ window.names = [
     "Amol",
     "Ganesh",
     "Rahul",
+    "Amol",
     "Phani",
     "The Sherminator",
     "Lamberto",
