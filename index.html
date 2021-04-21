@@ -24,7 +24,7 @@
         const index = Number(new URLSearchParams(window.location.search).get('week') ?? window.getWeek(new Date()))
         await window.createHeroBanner(index)
         await window.createTable(...window.createTableData(index, 3))
-        await window.after(4000)
+        await window.after(10000)
         window.sparkles()
     })()
 </script>
