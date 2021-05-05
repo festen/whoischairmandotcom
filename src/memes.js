@@ -7,10 +7,16 @@
 
 
 /**
- * Index used as week number, starting week 0 2021
+ * Offset in weeks
+ * @type {number}
+ */
+window.memesOffset = 16
+
+/**
+ * Index used as week number, respecting memesOffset
  * @type {Meme[]} memes
  */
-window.memes = [, , , , , , , , , , , , , , , ,
+window.memes = [
     {
         id: "112126428",
         default: "Distracted Boyfriend",
@@ -100,8 +106,6 @@ window.memes = [, , , , , , , , , , , , , , , ,
         id: "12403754",
         default: "Bad Pun Dog",
         descr: "joke dog, whisper joke dog, happy husky, joke telling husky, pun husky",
-        text0: '',
-        text1: '',
     },
     {
         id: "195389",
