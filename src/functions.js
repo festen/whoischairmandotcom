@@ -39,13 +39,12 @@ window.loadImage = (img, url, timeout) => new Promise(resolve => {
 //////////////////////
 //// CREATE STUFF ////
 //////////////////////
-
-window.createTableData = (currentIndex, count) => {
+window.createTableData = (index, count) => {
     const fmt = new Intl.DateTimeFormat('en', {dateStyle: 'long'}).format
 
-    const data = new Array(count).fill(0).map((_, i) => i + currentIndex).map(i => {
-        const [from, to] = window.weekToRange(i)
-        return [fmt(from), '-', fmt(to), window.names[i]]
+    const data = new Array(count).fill(0).map((_, i) => {
+        const [from, to] = window.weekToRange(i + index)
+        return [fmt(from), '-', fmt(to), window.names[(i + index - window.namesOffset) % window.names.length]]
     })
     const alignment = ['right', 'center', 'right', 'left']
     return [data, alignment]
@@ -71,10 +70,11 @@ window.createTable = async (data, align = []) => {
 
 window.createHeroBanner = async (index) => {
     try {
-        const name = window.names[index]
-        const text0 = (window.memes[index].text0 ?? '').replaceAll('{{name}}', name)
-        const text1 = (window.memes[index].text1 ?? '').replaceAll('{{name}}', name)
-        const response = await fetch(`https://api.imgflip.com/caption_image?text0=${text0}&text1=${text1}&username=festen&password=hufceH-dasmes-herxy4&template_id=${window.memes[index].id}`, {
+        const name = window.names[(index - window.namesOffset) % window.names.length]
+        const meme = window.memes[(index - window.memesOffset) % window.memes.length]
+        const text0 = (meme.text0 ?? '').replaceAll('{{name}}', name)
+        const text1 = (meme.text1 ?? '').replaceAll('{{name}}', name)
+        const response = await fetch(`https://api.imgflip.com/caption_image?text0=${text0}&text1=${text1}&username=festen&password=hufceH-dasmes-herxy4&template_id=${meme.id}`, {
             method: 'POST',
         })
 
@@ -121,16 +121,18 @@ window.createHeroBanner = async (index) => {
 //////////////////
 //// Sparkles ////
 //////////////////
-window.sparkles = () => {
+window.sparkles = async () => {
     const r = (lower, upper) => Math.random() * (upper - lower) + lower
-
-    return setInterval(() => confetti({
-        spread: r(30, 150),
-        particleCount: r(50, 100),
-        origin: {
-            x: r(0.3, 0.7),
-            y: r(0.3, 0.6),
-        },
-        ticks: r(150, 400)
-    }), 1000)
+    while (true) {
+        await window.after(r(250,1750))
+        confetti({
+            spread: r(30, 150),
+            particleCount: r(50, 100),
+            origin: {
+                x: r(0.3, 0.7),
+                y: r(0.3, 0.6),
+            },
+            ticks: r(150, 400)
+        })
+    }
 }
