@@ -123,7 +123,8 @@ window.createHeroBanner = async (index) => {
 //////////////////
 window.sparkles = async () => {
     const r = (lower, upper) => Math.random() * (upper - lower) + lower
-    while (true) {
+    const times = 10
+    for (let i = 0; i < times; i++) {
         await window.after(r(250,1750))
         confetti({
             spread: r(30, 150),
