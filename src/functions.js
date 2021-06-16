@@ -39,12 +39,25 @@ window.loadImage = (img, url, timeout) => new Promise(resolve => {
 //////////////////////
 //// CREATE STUFF ////
 //////////////////////
+
+/**
+ * offset = 0 => current chairman
+ * offset = n => chairman in n weeks
+ */
+window.getChairman = (offset = 0) => {
+    const startOffset = window.names.indexOf(startWith)
+    const currentWeek =  window.getWeek(new Date())
+    const startWeek = window.getWeek(new Date(window.startAt))
+    return names[(currentWeek + offset + startOffset - startWeek) % window.names.length]
+}
+
 window.createTableData = (index, count) => {
+    // noinspection JSCheckFunctionSignatures
     const fmt = new Intl.DateTimeFormat('en', {dateStyle: 'long'}).format
 
     const data = new Array(count).fill(0).map((_, i) => {
         const [from, to] = window.weekToRange(i + index)
-        return [fmt(from), '-', fmt(to), window.names[(i + index - window.namesOffset) % window.names.length]]
+        return [fmt(from), '-', fmt(to), window.getChairman(i)]
     })
     const alignment = ['right', 'center', 'right', 'left']
     return [data, alignment]
@@ -70,10 +83,11 @@ window.createTable = async (data, align = []) => {
 
 window.createHeroBanner = async (index) => {
     try {
-        const name = window.names[(index - window.namesOffset) % window.names.length]
+        const name = window.getChairman()
         const meme = window.memes[(index - window.memesOffset) % window.memes.length]
         const text0 = (meme.text0 ?? '').replaceAll('{{name}}', name)
         const text1 = (meme.text1 ?? '').replaceAll('{{name}}', name)
+        // noinspection SpellCheckingInspection
         const response = await fetch(`https://api.imgflip.com/caption_image?text0=${text0}&text1=${text1}&username=festen&password=hufceH-dasmes-herxy4&template_id=${meme.id}`, {
             method: 'POST',
         })
