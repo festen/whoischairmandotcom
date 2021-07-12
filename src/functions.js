@@ -1,3 +1,5 @@
+const baseDelay = 250; // per dot in ms
+
 ///////////////
 //// UTILS ////
 ///////////////
@@ -25,7 +27,7 @@ window.weekToRange = (week) => {
     return [start, stop]
 }
 
-window.after = (delay = 500) => new Promise(resolve => setTimeout(resolve, delay))
+window.after = (delay = baseDelay) => new Promise(resolve => setTimeout(resolve, delay))
 
 window.loadImage = (img, url, timeout) => new Promise(resolve => {
     const timeoutToken = setTimeout(() => img.src = url, timeout)
@@ -46,7 +48,7 @@ window.loadImage = (img, url, timeout) => new Promise(resolve => {
  */
 window.getChairman = (offset = 0) => {
     const startOffset = window.names.indexOf(startWith)
-    const currentWeek =  window.getWeek(new Date())
+    const currentWeek = window.getWeek(new Date())
     const startWeek = window.getWeek(new Date(window.startAt))
     return names[(currentWeek + offset + startOffset - startWeek) % window.names.length]
 }
@@ -104,18 +106,18 @@ window.createHeroBanner = async (index) => {
         content.style.opacity = '0'
         container.appendChild(content)
 
-        await loadImage(content, result.data.url, 3000)
+        await loadImage(content, result.data.url, baseDelay * 6)
         title.innerHTML = `And our lucky chairman of the week is &nbsp;&nbsp;&nbsp;`
         title.style.opacity = '1'
 
         Promise.resolve()
-            .then(() => after(500))
+            .then(() => after(baseDelay))
             .then(() => title.innerHTML = `And our lucky chairman of the week is .&nbsp;&nbsp;`)
-            .then(() => after(500))
+            .then(() => after(baseDelay))
             .then(() => title.innerHTML = `And our lucky chairman of the week is ..&nbsp;`)
-            .then(() => after(500))
+            .then(() => after(baseDelay))
             .then(() => title.innerHTML = `And our lucky chairman of the week is ...`)
-            .then(() => after(500))
+            .then(() => after(baseDelay))
             .then(() => {
                 content.style.opacity = '1'
                 title.innerHTML = `And our lucky chairman of the week is <strong>${name}</strong>`
@@ -135,11 +137,25 @@ window.createHeroBanner = async (index) => {
 //////////////////
 //// Sparkles ////
 //////////////////
+window.onclick = function (event) {
+    const r = (lower, upper) => Math.random() * (upper - lower) + lower
+    confetti({
+        spread: r(30, 150),
+        particleCount: r(50, 100),
+        origin: {
+            x: event.clientX / document.body.clientWidth,
+            y: event.clientY / document.body.clientHeight,
+        },
+        ticks: r(150, 400)
+    })
+}
+
+
 window.sparkles = async () => {
     const r = (lower, upper) => Math.random() * (upper - lower) + lower
     const times = 10
     for (let i = 0; i < times; i++) {
-        await window.after(r(250,1750))
+        await window.after(r(baseDelay, baseDelay * 2))
         confetti({
             spread: r(30, 150),
             particleCount: r(50, 100),
