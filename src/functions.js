@@ -48,9 +48,13 @@ window.loadImage = (img, url, timeout) => new Promise(resolve => {
  */
 window.getChairman = (offset = 0) => {
     const startOffset = window.names.indexOf(startWith)
-    const currentWeek = window.getWeek(new Date())
-    const startWeek = window.getWeek(new Date(window.startAt))
-    return names[(52 + currentWeek + offset + startOffset - startWeek) % window.names.length]
+    
+    const currentDate = new Date();
+    const startDate = new Date(window.startAt);
+    
+    const weeksSinceStart = Math.floor((currentDate - startDate) / 604_800_000);
+    
+    return names[(weeksSinceStart + offset + startOffset) % window.names.length]
 }
 
 window.createTableData = (index, count) => {
