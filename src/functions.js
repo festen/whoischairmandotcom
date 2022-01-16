@@ -50,7 +50,7 @@ window.getChairman = (offset = 0) => {
     const startOffset = window.names.indexOf(startWith)
     const currentWeek = window.getWeek(new Date())
     const startWeek = window.getWeek(new Date(window.startAt))
-    return names[(currentWeek + offset + startOffset - startWeek) % window.names.length]
+    return names[(52 + currentWeek + offset + startOffset - startWeek) % window.names.length]
 }
 
 window.createTableData = (index, count) => {
@@ -86,7 +86,7 @@ window.createTable = async (data, align = []) => {
 window.createHeroBanner = async (index) => {
     try {
         const name = window.getChairman()
-        const meme = window.memes[(index - window.memesOffset) % window.memes.length]
+        const meme = window.memes[(window.memes.length + index - window.memesOffset) % window.memes.length]
         const text0 = (meme.text0 ?? '').replaceAll('{{name}}', name)
         const text1 = (meme.text1 ?? '').replaceAll('{{name}}', name)
         // noinspection SpellCheckingInspection
