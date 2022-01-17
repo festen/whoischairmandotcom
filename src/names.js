@@ -2,13 +2,13 @@
  * Name in the window.names list
  * @type {string}
  */
-window.startWith = "Inam";
+window.startWith = "Santosh";
 
 /**
  * Something that fits in args for new Date(args)
  * @type {number|string|Date}
  */
-window.startAt = "2021-09-27";
+window.startAt = "2022-01-17";
 
 // noinspection SpellCheckingInspection
 /**
@@ -18,7 +18,6 @@ window.startAt = "2021-09-27";
 window.names = [
   "The Sherminator",
   "Inam",
-  "Ramon",
   "Venkat",
   "Ganesh",
   "Rahul",
