@@ -24,4 +24,5 @@ window.names = [
   "Mark",
   "Prad",
   "Santosh",
+  "Kirthikumar"
 ];
