@@ -2,13 +2,13 @@
  * Name in the window.names list
  * @type {string}
  */
-window.startWith = "Santosh";
+window.startWith = "Prad";
 
 /**
  * Something that fits in args for new Date(args)
  * @type {number|string|Date}
  */
-window.startAt = "2022-01-17";
+window.startAt = "2022-03-07";
 
 // noinspection SpellCheckingInspection
 /**
