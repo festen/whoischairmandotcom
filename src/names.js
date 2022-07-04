@@ -8,7 +8,7 @@ window.startWith = "Prad";
  * Something that fits in args for new Date(args)
  * @type {number|string|Date}
  */
-window.startAt = "2022-03-07";
+window.startAt = "2022-07-04";
 
 // noinspection SpellCheckingInspection
 /**
@@ -16,13 +16,13 @@ window.startAt = "2022-03-07";
  * @type {string[]}
  */
 window.names = [
-  "The Sherminator",
-  "Inam",
   "Venkat",
-  "Ganesh",
-  "Rahul",
-  "Mark",
-  "Prad",
   "Santosh",
-  "Kirthikumar"
+  "The Sherminator",
+  "Mark",
+  "Suman",
+  "Ganesh",
+  "Prad",
+  "KK",
+  "Rahul",
 ];
